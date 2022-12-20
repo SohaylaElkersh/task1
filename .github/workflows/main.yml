@@ -8,9 +8,9 @@ jobs:
       - uses: actions/checkout@v3
      
       - name: 'login to docker'
-        run: docker login --username ${{ username }} --password ${{ password }}
+        run: docker login --username ${{ USERNAME }} --password ${{ PASSWORD }}
       - name: 'building image'
-        run: docker build -t ${{ username }}/imagetask .
+        run: docker build -t ${{ USERNAME }}/imagetask .
         
       - name: 'pushing to docker hup'
-        run: docker push ${{ username }}/imagetask
+        run: docker push ${{ USERNAME }}/imagetask
