@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: newbranch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+     
+      - name: 'login to docker'
+        run: docker login --username ${{ username }} --password ${{ password }}
+      - name: 'building image'
+        run: docker build -t ${{ username }}/imagetask .
+        
+      - name: 'pushing to docker hup'
+        run: docker push ${{ username }}/imagetask
